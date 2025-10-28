@@ -78,9 +78,49 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@greater(activity('Get Metadata').output.columnCount, 25)",
+						"value": "@equals(activity('Get Metadata').output.columnCount, 27)",
 						"type": "Expression"
 					},
+					"ifFalseActivities": [
+						{
+							"name": "Fail1",
+							"type": "Fail",
+							"dependsOn": [
+								{
+									"activity": "sendSuccessfulMessage_copy1",
+									"dependencyConditions": [
+										"Completed"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"message": "Pipeline Failed",
+								"errorCode": "400"
+							}
+						},
+						{
+							"name": "sendSuccessfulMessage_copy1",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"method": "POST",
+								"url": "https://prod-25.northcentralus.logic.azure.com:443/workflows/818762af842f41178ce23bb043be6c52/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=u5uCz7mVZSP_1ahMyMC1VvaZ5oQSh6s5u0L0OwsImd8",
+								"body": {
+									"value": "{\n  \"message\": \"❌ FleetIngestionPipeline Failed <br>Time: @{pipeline().TriggerTime}<br>Reason: Expected Column Count 27 but got Column Count: @{activity('Get Metadata').output.columnCount}\"\n}\n",
+									"type": "Expression"
+								}
+							}
+						}
+					],
 					"ifTrueActivities": [
 						{
 							"name": "Copy data1",
