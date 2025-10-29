@@ -8,7 +8,7 @@
 		"parameters": {
 			"container": {
 				"type": "string",
-				"defaultValue": "raw"
+				"defaultValue": "source"
 			},
 			"file": {
 				"type": "string",

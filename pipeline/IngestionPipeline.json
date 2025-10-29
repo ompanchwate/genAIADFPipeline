@@ -12,7 +12,7 @@
 						"referenceName": "SourceDataset",
 						"type": "DatasetReference",
 						"parameters": {
-							"container": "raw",
+							"container": "source",
 							"file": "logistics_dataset_with_maintenance_required.csv"
 						}
 					},
@@ -44,7 +44,7 @@
 						"referenceName": "SourceDataset",
 						"type": "DatasetReference",
 						"parameters": {
-							"container": "raw",
+							"container": "source",
 							"file": "logistics_dataset_with_maintenance_required.csv"
 						}
 					},
@@ -170,7 +170,7 @@
 									"referenceName": "SourceDataset",
 									"type": "DatasetReference",
 									"parameters": {
-										"container": "raw",
+										"container": "source",
 										"file": "logistics_dataset_with_maintenance_required.csv"
 									}
 								}
@@ -180,7 +180,7 @@
 									"referenceName": "SinkDataset",
 									"type": "DatasetReference",
 									"parameters": {
-										"container": "fleetdata"
+										"container": "sink"
 									}
 								}
 							]
