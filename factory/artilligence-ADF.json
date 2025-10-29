@@ -1,0 +1,9 @@
+{
+	"name": "artilligence-ADF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "82a000e8-8641-4c73-afa8-c44631378fed",
+		"tenantId": "c853abc0-64a4-447b-99f7-564ea0b8e378"
+	}
+}
