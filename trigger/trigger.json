@@ -1,0 +1,24 @@
+{
+	"name": "trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "IngestionPipeline",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/sink/blobs/",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/9ecede26-932c-46a9-89d6-cf3ca23c4a58/resourceGroups/RG-Artillegence/providers/Microsoft.Storage/storageAccounts/fleetlake",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}
